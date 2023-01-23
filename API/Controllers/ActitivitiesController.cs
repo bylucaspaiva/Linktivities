@@ -9,7 +9,7 @@ namespace API.Controllers
     {
         private readonly DataContext _context;
 
-        public ActivitivitiesController(DataContext context)
+        public ActitivitiesController(DataContext context)
         {
             _context = context;
         }
@@ -21,6 +21,11 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]//api/activities/anything
-        public
+        public async Task<ActionResult<Activity>> GetActivity(Guid id)
+        {
+            return await _context.Activities.FindAsync(id);
+        }
+
+
     }
 }
