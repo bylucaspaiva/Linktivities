@@ -1,9 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
+using System.Diagnostics;
 
 namespace Persistence;
 
-internal class DataContext : DbContext
+public class DataContext : DbContext
 {
+    public DataContext(DbContextOptions options) : base(options)
+    {
+    }
 
+    public DbSet<Activity> Activities { get; set; }
 }
