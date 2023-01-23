@@ -1,6 +1,11 @@
-﻿namespace API.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace API.Controllers
 {
-    public class BaseApiController
+    [ApiController]
+    [Route("api/[controller]")]//www.localhost:5000/baseapi
+    public class BaseApiController : ControllerBase
     {
+
     }
 }
