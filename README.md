@@ -10,4 +10,5 @@ A complete social network.
 
 - dotnet ef migrations add InitialCreate -s API/ -p Persistence/
 
-## 
+## React packages
+- axios
