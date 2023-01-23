@@ -12,3 +12,4 @@ A complete social network.
 
 ## React packages
 - axios
+- [React.semantic-ui](https://react.semantic-ui.com)
