@@ -9,3 +9,5 @@ A complete social network.
 ## Entity Framework commands
 
 - dotnet ef migrations add InitialCreate -s API/ -p Persistence/
+
+## 
