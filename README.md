@@ -5,6 +5,7 @@ A complete social network coded in .Net and React.
 ## NuGet Packages
 
 - Microsoft.EntityFrameworkCore.Sqlite
+- MediatR
 
 ## Entity Framework commands
 
