@@ -1,6 +1,6 @@
 # Reactivities
 
-A complete social network.
+A complete social network coded in .Net and React.
 
 ## NuGet Packages
 
