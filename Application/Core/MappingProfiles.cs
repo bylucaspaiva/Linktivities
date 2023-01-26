@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ public class MappingProfiles : Profile
 {
     public MappingProfiles()
     {
+        CreateMap<Activity, Activity>();
     }
 }
