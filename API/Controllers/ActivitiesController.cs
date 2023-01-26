@@ -9,8 +9,6 @@ namespace API.Controllers
 {
     public class ActivitiesController : BaseApiController
     {
-        
-
         [HttpGet]//api/activities
         public async Task<ActionResult<List<Activity>>> GetActivities()
         {
@@ -23,6 +21,11 @@ namespace API.Controllers
             return await Mediator.Send(new Details.Query { Id = id });
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateActivity([FromBody]Activity activity)
+        {
+            return Ok(await Mediator.Send(new Create.Command { Activity = activity}));
+        }
 
 
     }
