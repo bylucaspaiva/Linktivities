@@ -25,9 +25,11 @@ namespace Application.Activities
                 _context = context;
             }
 
-            public Task<Unit> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                throw new NotImplementedException();
+                _context.Activities.AddAsync(request.Activity);
+                await _context.SaveChangesAsync();
+                return Unit.Value;
             }
         }
     }
