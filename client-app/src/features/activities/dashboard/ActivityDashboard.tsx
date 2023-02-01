@@ -7,10 +7,12 @@ import ActivityList from "./ActivityList";
 
 interface Props {
   activities: Activity[];
+  selectedActivity: Activity | undefined;
+  selectActivity: (id:string) => void;
+  cancelSelectActivity: () => void;
 }
 
-export default function ActivityDashboard({ activities }: Props) {
-  console.log("act:",activities[0])
+export default function ActivityDashboard({ activities, selectActivity, selectedActivity, cancelSelectActivity }: Props) {
   return (
     <Grid>
       <Grid.Column width={10}>
