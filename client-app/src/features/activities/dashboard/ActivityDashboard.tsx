@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, GridColumn, List } from "semantic-ui-react";
 import { Activity } from "../../../app/models/activity";
+import ActivityList from "./ActivityList";
 
 interface Props {
   activities: Activity[];
@@ -9,11 +10,7 @@ interface Props {
 export default function ActivityDashboard({activities}: Props){
   return (
     <Grid.Column width={10}>
-      <List>
-          {activities.map(activity => (
-            <List.Item key={activity.id}>{activity.title}</List.Item>
-          ))}
-        </List>
+      <ActivityList activities={activities} />
     </Grid.Column>
   )
 }
