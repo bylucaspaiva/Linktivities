@@ -10,6 +10,9 @@ interface Props {
   selectedActivity: Activity | undefined;
   selectActivity: (id:string) => void;
   cancelSelectActivity: () => void;
+  editMode: boolean;
+  openForm: (id?: string) => void;
+  closeForm: () => void;
 }
 
 export default function ActivityDashboard({ activities, selectActivity, selectedActivity, cancelSelectActivity }: Props) {

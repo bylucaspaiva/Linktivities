@@ -30,7 +30,7 @@ function App() {
     setEditMode(true);
   }
 
-  function handleCloseFolder() {
+  function handleFormClose() {
     setEditMode(false);
   }
   
@@ -43,6 +43,9 @@ function App() {
         selectedActivity={selectedActivity}
         selectActivity={handleSelectActivity}
         cancelSelectActivity={handleCancelSelectActivity}
+        editMode={editMode}
+        openForm={handleFormOpen}
+        closeForm={handleFormClose}
       /> 
       </Container>
     </>
