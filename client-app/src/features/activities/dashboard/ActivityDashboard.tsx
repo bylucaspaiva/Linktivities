@@ -19,8 +19,8 @@ export default function ActivityDashboard({ activities, selectActivity, selected
         <ActivityList activities={activities} selectActivity={selectActivity} />
       </Grid.Column>
       <GridColumn width={6}>
-        {activities[0] &&
-        <ActivityDetails activity={activities[0]} />}
+        {selectedActivity &&
+        <ActivityDetails activity={selectedActivity} cancelSelectActivity={cancelSelectActivity}/>}
         <ActivityForm />
       </GridColumn>
     </Grid>
