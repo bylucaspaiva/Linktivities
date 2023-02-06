@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Form, Segment } from 'semantic-ui-react'
 import { Activity } from '../../../app/models/activity';
 
@@ -7,7 +7,24 @@ interface Props {
   activity: Activity | undefined;
 }
 
-const ActivityForm = ({ closeForm, activity} : Props) => {
+const ActivityForm = ({ closeForm, activity: selectedActivity} : Props) => {
+  
+  const initialState = selectedActivity ?? {
+    id: '',
+    title: '',
+    category: '',
+    description: '',
+    date: '',
+    city: '',
+    venue: ''
+  }
+
+  const [activity, setActivity] = useState(initialState);
+
+  function handleSubmit() {
+    console.log(activity);
+  }
+
   return (
     <Segment clearing>
       <Form>
