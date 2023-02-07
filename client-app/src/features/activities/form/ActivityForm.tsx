@@ -5,9 +5,10 @@ import { Activity } from '../../../app/models/activity';
 interface Props {
   closeForm: () => void;
   activity: Activity | undefined;
+  createOrEdit: (activity: Activity) => void;
 }
 
-const ActivityForm = ({ closeForm, activity: selectedActivity} : Props) => {
+const ActivityForm = ({ closeForm, activity: selectedActivity, createOrEdit} : Props) => {
   
   const initialState = selectedActivity ?? {
     id: '',
@@ -22,13 +23,15 @@ const ActivityForm = ({ closeForm, activity: selectedActivity} : Props) => {
   const [activity, setActivity] = useState(initialState);
 
   function handleSubmit() {
-    console.log(activity);
+    createOrEdit(activity);
   }
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const {name, value} = event.target;
     setActivity({...activity, [name]: value})
   }
+
+  
 
   return (
     <Segment clearing>
