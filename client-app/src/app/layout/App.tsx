@@ -40,6 +40,10 @@ function App() {
       ? setActivities([...activities.filter(x => x.id !== activity.id), activity])
       : setActivities([...activities, {...activity, id: uuid()}]); 
   }
+
+  function handleDeleteActivity (id: string) {
+    setActivities([...activities.filter(x => x.id !== id)])
+  }
   
   return (
     <>
@@ -54,6 +58,7 @@ function App() {
         openForm={handleFormOpen}
         closeForm={handleFormClose}
         createOrEdit={handleCreateOrEditActivity}
+        deleteActivity={handleDeleteActivity}
       /> 
       </Container>
     </>
