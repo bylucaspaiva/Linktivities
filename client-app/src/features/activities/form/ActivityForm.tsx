@@ -6,9 +6,10 @@ interface Props {
   closeForm: () => void;
   activity: Activity | undefined;
   createOrEdit: (activity: Activity) => void;
+  submitting: boolean;
 }
 
-const ActivityForm = ({ closeForm, activity: selectedActivity, createOrEdit} : Props) => {
+const ActivityForm = ({ closeForm, activity: selectedActivity, createOrEdit, submitting} : Props) => {
   
   const initialState = selectedActivity ?? {
     id: '',
