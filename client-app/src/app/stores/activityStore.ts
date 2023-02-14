@@ -35,4 +35,8 @@ export default class ActivityStore {
   selectActivity = (id: string) => {
     this.selectedActivity = this.activities.find(x => x.id === id);
   }
+
+  cancelSelectedActivity = () => {
+    this.selectedActivity = undefined;
+  }
 }
