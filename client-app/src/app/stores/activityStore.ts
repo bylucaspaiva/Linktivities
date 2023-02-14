@@ -42,5 +42,10 @@ export default class ActivityStore {
 
   openForm = (id?: string) => {
     id ? this.selectActivity(id) : this.cancelSelectedActivity();
+    this.editMode = true;
+  }
+
+  closeForm = () => {
+    this.editMode = false;
   }
 }
