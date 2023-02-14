@@ -39,4 +39,8 @@ export default class ActivityStore {
   cancelSelectedActivity = () => {
     this.selectedActivity = undefined;
   }
+
+  openForm = (id?: string) => {
+    id ? this.selectActivity(id) : this.cancelSelectedActivity();
+  }
 }
