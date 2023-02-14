@@ -57,9 +57,7 @@ function App() {
       <Container style={{ marginTop: '7em' }}>
         <ActivityDashboard
           activities={activityStore.activities}
-          selectedActivity={selectedActivity}
           
-          editMode={editMode}
         
           createOrEdit={handleCreateOrEditActivity}
           deleteActivity={handleDeleteActivity}
