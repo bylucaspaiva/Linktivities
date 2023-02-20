@@ -1,3 +1,4 @@
+import { observer } from "mobx-react-lite";
 import React, { useState } from "react";
 import { Button, Item, Label, Segment } from "semantic-ui-react";
 import { Activity } from "../../../app/models/activity";
@@ -9,7 +10,7 @@ interface Props {
   submitting: boolean;
 }
 
-const ActivityList = ({ activities, deleteActivity, submitting }: Props) => {
+export default observer(function ActivityList ({ activities, deleteActivity, submitting }: Props) {
   const [target, setTarget] = useState('');
 
   function handleActivityDelete(e: React.MouseEvent<HTMLButtonElement, MouseEvent>, id: string) {
@@ -55,6 +56,4 @@ const ActivityList = ({ activities, deleteActivity, submitting }: Props) => {
       </Item.Group>
     </Segment>
   )
-}
-
-export default ActivityList;
+})
