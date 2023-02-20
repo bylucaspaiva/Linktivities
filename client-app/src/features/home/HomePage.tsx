@@ -4,7 +4,7 @@ import { Container } from 'semantic-ui-react'
 const HomePage = () => {
   return (
     <Container style={{marginTop: '7em'}}>
-      <div>HomePage</div>
+      <h1>HomePage</h1>
     </Container>
   )
 }
