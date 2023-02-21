@@ -11,7 +11,7 @@ export const routes: RouteObject[] = [
     children: [
       {path: '', element: <HomePage />},
       {path: 'activities', element: <ActivityDashboard />},
-      {path: 'createActivity', element: <ActivityForm />}
+      {path: 'create-activity', element: <ActivityForm />}
 
 
 
