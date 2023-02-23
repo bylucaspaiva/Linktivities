@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Item, Label } from 'semantic-ui-react'
+import { Activity } from '../../../app/models/activity'
+import { useStore } from '../../../app/stores/store';
 
-const ActivityListItem = () => {
+interface Props {
+  activity: Activity;
+}
+
+const ActivityListItem = ({activity} : Props) => {
+
+  const {activityStore} = useStore();
+  const {deleteActivity, loading} = activityStore;
+  const [target, setTarget] = useState('');
+
+  function handleActivityDelete(e: React.MouseEvent<HTMLButtonElement, MouseEvent>, id: string) {
+    setTarget(e.currentTarget.name);
+    deleteActivity(id);
+  }
+
+
+
   return (
     <Item key={activity.id}>
             <Item.Content>
