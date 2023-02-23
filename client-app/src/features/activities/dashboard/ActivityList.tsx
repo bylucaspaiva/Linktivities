@@ -12,7 +12,7 @@ export default observer(function ActivityList () {
     <Segment>
       <Item.Group divided>
         {activitiesByDate.map(activity => (
-          <ActivityListItem activity={activity} />
+          <ActivityListItem key={activity.id} activity={activity} />
         ))}
       </Item.Group>
     </Segment>
