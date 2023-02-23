@@ -1,16 +1,18 @@
 import { observer } from 'mobx-react-lite';
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { Button, Form, Segment } from 'semantic-ui-react'
+import { Activity } from '../../../app/models/activity';
 import { useStore } from '../../../app/stores/store';
 
 
 export default observer(function ActivityForm () {
 
   const {activityStore} = useStore();
+  const {selectedActivity, createActivity, updateActivity, loading, loadActivity, loadingInitial} = activityStore;
+  const {id} = useParams();
 
-  const {selectedActivity, createActivity, updateActivity, loading} = activityStore;
-  
-  const initialState = selectedActivity ?? {
+  const [activity, setActivity] = useState<Activity>({
     id: '',
     title: '',
     category: '',
@@ -18,9 +20,11 @@ export default observer(function ActivityForm () {
     date: '',
     city: '',
     venue: ''
-  }
-
-  const [activity, setActivity] = useState(initialState);
+  });
+  
+  useEffect(() => {
+    if(id) loadActivity(id).then(activity => setActivity(activity!))
+  }, [])
 
   function handleSubmit() {
     activity.id ? updateActivity(activity) : createActivity(activity);
