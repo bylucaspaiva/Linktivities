@@ -37,7 +37,7 @@ export default observer(function ActivityForm () {
     setActivity({...activity, [name]: value})
   }
 
-  if(loadingInitial) return <LoadingComponent content='Loading activity'/>
+  if(loadingInitial) return <LoadingComponent content='Loading activity...'/>
   
 
   return (
