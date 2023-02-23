@@ -19,8 +19,6 @@ const ActivityListItem = ({activity} : Props) => {
     deleteActivity(id);
   }
 
-
-
   return (
     <Item key={activity.id}>
             <Item.Content>

@@ -1,27 +1,18 @@
 import { observer } from "mobx-react-lite";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Button, Item, Label, Segment } from "semantic-ui-react";
+import { Item, Segment } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
+import ActivityListItem from "./ActivityListItem";
 
 
 export default observer(function ActivityList () {
   const {activityStore} = useStore();
-  const {deleteActivity, activitiesByDate, loading} = activityStore;
-  const [target, setTarget] = useState('');
-
-  function handleActivityDelete(e: React.MouseEvent<HTMLButtonElement, MouseEvent>, id: string) {
-    setTarget(e.currentTarget.name);
-    deleteActivity(id);
-  }
-
-
+  const { activitiesByDate } = activityStore;
 
   return (
     <Segment>
       <Item.Group divided>
         {activitiesByDate.map(activity => (
-          
+          <ActivityListItem activity={activity} />
         ))}
       </Item.Group>
     </Segment>
