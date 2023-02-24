@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Item, Label } from 'semantic-ui-react'
+import { Button, Item, Label, Segment } from 'semantic-ui-react'
 import { Activity } from '../../../app/models/activity'
 import { useStore } from '../../../app/stores/store';
 
@@ -20,33 +20,18 @@ const ActivityListItem = ({activity} : Props) => {
   }
 
   return (
-    <Item key={activity.id}>
+    <Segment.Group>
+      <Segment>
+        <Item.Group>
+          <Item>
+            <Item.Image size='tiny' circular src='/assets/user.png' />
             <Item.Content>
-              <Item.Header as='a'>{activity.title}</Item.Header>
-              <Item.Meta>{activity.date}</Item.Meta>
-              <Item.Description>
-                <div>{activity.description}</div>
-                <div>{activity.city}, {activity.venue}</div>
-              </Item.Description>
-              <Item.Extra>
-                <Button
-                  content="Delete"
-                  name={activity.id}
-                  loading={loading && target === activity.id}
-                  onClick={(e) => handleActivityDelete(e, activity.id)}
-                  floated="right"
-                  color="red"
-                /> 
-                <Button
-                  as={Link} to={`/activities/${activity.id}`}
-                  content="View"
-                  floated="right"
-                  color="blue"
-                />
-                <Label basic content={activity.category} />
-              </Item.Extra>
+              <Item.Header as={Link} to={`/activities/${activity.id}`}>{activity.title}</Item.Header>
             </Item.Content>
           </Item>
+        </Item.Group>
+      </Segment>
+    </Segment.Group>
   )
 }
 
