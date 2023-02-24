@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom';
-import { Button, Card, Grid, GridColumn, Image } from 'semantic-ui-react'
+import { useParams } from 'react-router-dom';
+import { Grid, GridColumn } from 'semantic-ui-react'
 import LoadingComponent from '../../../app/layout/LoadingComponent';
 import { useStore } from '../../../app/stores/store'
 import ActivityDetailedChat from './ActivityDetailedChat';
@@ -24,7 +24,7 @@ export default observer(function ActivityDetails () {
       <Grid>
         <GridColumn width={10}>
           <ActivityDetailedHeader activity={activity}/>
-          <ActivityDetailedInfo />
+          <ActivityDetailedInfo activity={activity}/>
           <ActivityDetailedChat />
         </GridColumn>
         <GridColumn width={6}>
