@@ -13,6 +13,11 @@ The communication between layers is handled by the Mediator pattern, which centr
 - Microsoft.EntityFrameworkCore.Sqlite
 - MediatR
 - AutoMapper.Extensions.Microsoft.DependencyInjection
+- Microsoft.EntityFrameworkCore.SqLite
+- Microsoft.EntityFrameworkCore.Design
+- Microsoft.EntityFrameworkCore.OpenApi
+- Microsoft.EntityFrameworkCore.SqLite
+- FluenValidation.AspNetCore
 
 ## Entity Framework commands
 
