@@ -19,17 +19,9 @@ namespace API.Controllers
         public async Task<IActionResult> GetActivity(Guid id)
         {
             var result =  await Mediator.Send(new Details.Query { Id = id });
-
-            if(result.IsSuccess && result.Value != null)
-            {
-                return Ok(result.Value);
-            }
-            if(result.IsSuccess && result.Value == null)
-            {
-                return NotFound();
-            }
-            return BadRequest(result.Error);
-        }
+            
+            return HandleResult(result);
+       }
 
         [HttpPost]
         public async Task<IActionResult> CreateActivity([FromBody]Activity activity)
