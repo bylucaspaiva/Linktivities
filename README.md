@@ -24,5 +24,6 @@ The communication between layers is handled by the Mediator pattern, which centr
 - dotnet ef migrations add InitialCreate -s API/ -p Persistence/
 
 ## React packages
+
 - axios
 - [React.semantic-ui](https://react.semantic-ui.com)
