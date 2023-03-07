@@ -24,6 +24,9 @@ export const setupResponseInterceptor = (navigate: any) => {
             modalStateErrors.push(data.errors[key])
           }
         }
+        throw modalStateErrors.flat();
+      }else {
+        toast.error(data);
       }
       toast.error('bad request')
       break;
@@ -34,7 +37,7 @@ export const setupResponseInterceptor = (navigate: any) => {
       toast.error('forbidden')
       break;
     case 404:
-      navigate('/activities');
+      navigate('/not-found');
       break;
     case 500:
       toast.error('server error')
