@@ -5,12 +5,12 @@ import { Button, Header, Icon, Segment } from 'semantic-ui-react'
 const NotFound = () => {
   return (
     <Segment placeholder>
-      <Header>
+      <Header icon>
         <Icon name='search'/>
         Oops - We've looked everywhere but could not found what are you looking for!
       </Header>
       <Segment.Inline>
-        <Button as={Link} to='./activities'></Button>
+        <Button as={Link} to='./activities'>Return to activities page.</Button>
       </Segment.Inline>
     </Segment>
   )
