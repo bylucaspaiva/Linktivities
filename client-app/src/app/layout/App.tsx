@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from 'semantic-ui-react';
 import NavBar from './NavBar';
 import { observer } from 'mobx-react-lite';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import HomePage from '../../features/home/HomePage';
 import { ToastContainer } from 'react-toastify';
+import { setupResponseInterceptor } from '../api/agent';
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const [isLoaded, setIsLoaded] = useState(false)
+    if (!isLoaded) {
+        setIsLoaded(true)
+    setupResponseInterceptor(navigate)
+    }
+
   return (
     <>
       {location.pathname === '/' ? <HomePage /> : (

@@ -1,8 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import { Activity } from '../models/activity';
-import { router } from '../router/Routes';
-
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
     setTimeout(resolve, delay) ;
@@ -11,13 +9,22 @@ const sleep = (delay: number) => {
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
-axios.interceptors.response.use(async response => {
+export const setupResponseInterceptor = (navigate: any) => {
+  axios.interceptors.response.use(async response => {
     await sleep(1000);
     return response;
 }, (error: AxiosError) => {
-  const {data, status} = error.response!;
+  const {data, status} = error.response as AxiosResponse;
   switch (status) {
     case 400:
+      if(data.errors){
+        const modalStateErrors= [];
+        for(const key in data.errors) {
+          if(data.errors[key]){
+            modalStateErrors.push(data.errors[key])
+          }
+        }
+      }
       toast.error('bad request')
       break;
     case 401:
@@ -27,7 +34,7 @@ axios.interceptors.response.use(async response => {
       toast.error('forbidden')
       break;
     case 404:
-      router.navigate('/activities');
+      navigate('/activities');
       break;
     case 500:
       toast.error('server error')
@@ -37,6 +44,10 @@ axios.interceptors.response.use(async response => {
   }
   return Promise.reject(error); 
 })
+  
+}
+
+
 
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
 
