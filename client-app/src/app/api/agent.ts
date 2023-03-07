@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import { Activity } from '../models/activity';
+import { store } from '../stores/store';
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
     setTimeout(resolve, delay) ;
@@ -40,7 +41,8 @@ export const setupResponseInterceptor = (navigate: any) => {
       navigate('/not-found');
       break;
     case 500:
-      toast.error('server error')
+      store.commonStore.setServerError(data);
+      navigate('/server-error')
       break; 
     default:
       break;
