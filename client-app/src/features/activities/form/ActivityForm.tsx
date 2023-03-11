@@ -50,19 +50,21 @@ export default observer(function ActivityForm () {
 
   return (
     <Segment clearing>
-      <Formik>
-        
+      <Formik initialValues={activity} onSubmit={values => console.log(values)}>
+        {({values: activity, handleChange, handleSubmit}) => (
+          <Form onSubmit={handleSubmit} autocomplete='off'>
+          <Form.Input placeholder="Title" value={activity.title} name='title' onChange={handleChange}/>
+          <Form.TextArea placeholder="Description" value={activity.description} name='description' onChange={handleChange}/>
+          <Form.Input placeholder="Category" value={activity.category} name='category' onChange={handleChange}/>
+          <Form.Input type="date" placeholder="Date" value={activity.date} name='date' onChange={handleChange}/>
+          <Form.Input placeholder="City" value={activity.city} name='city' onChange={handleChange}/>
+          <Form.Input placeholder="Venue" value={activity.venue} name='venue' onChange={handleChange}/>
+          <Button floated="right" positive type="submit" content="Submit" loading={loading} />
+          <Button as={Link} to='/activities' floated="right" type="button" content="Cancel" />
+        </Form>
+        )}
       </Formik>
-      {/* <Form onSubmit={handleSubmit} onChange={handleInputChange} autocomplete='off'>
-        <Form.Input placeholder="Title" value={activity.title} name='title' onChange={handleInputChange}/>
-        <Form.TextArea placeholder="Description" value={activity.description} name='description' onChange={handleInputChange}/>
-        <Form.Input placeholder="Category" value={activity.category} name='category' onChange={handleInputChange}/>
-        <Form.Input type="date" placeholder="Date" value={activity.date} name='date' onChange={handleInputChange}/>
-        <Form.Input placeholder="City" value={activity.city} name='city' onChange={handleInputChange}/>
-        <Form.Input placeholder="Venue" value={activity.venue} name='venue' onChange={handleInputChange}/>
-        <Button floated="right" positive type="submit" content="Submit" loading={loading} />
-        <Button as={Link} to='/activities' floated="right" type="button" content="Cancel" />
-      </Form> */}
+      
     </Segment>
   )
 })
