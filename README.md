@@ -2,11 +2,15 @@
 
 A complete social network coded in .Net and React.
 
-## Some important things about this project
+<div>
+  <img src="https://user-images.githubusercontent.com/58491622/224570668-ac0ae2d3-0295-4d3a-aa82-fe10e9432909.png" alt="Home" />
+  <img src="https://user-images.githubusercontent.com/58491622/224570889-83bfd8ea-f6ea-427f-9ae8-46b8139beffc.png" alt="list activities" />
+  <img src="https://user-images.githubusercontent.com/58491622/224570934-fb7dfb19-6975-4731-8a31-97a9ca3acad6.png" alt="view acitivy" />
+  <img src="https://user-images.githubusercontent.com/58491622/224571753-cdfcd565-eb2e-4275-8596-5421064c5f54.png" alt="create activity"  />               
+</div>
 
-The intuit of this project is to follow the most recomended way to build a complex system.
-So it was being builded following SOLID principies and Clean Architecture, aiming to have a scalable, maintainable, and testable codebase.
-The communication between layers is handled by the Mediator pattern, which centralizes requests and decouples components, leading to a better separation of concerns and more organized code.
+
+The intent of this project is to follow the most recommended way to build a complex system. So it was built following SOLID principles and Clean Architecture, aiming to have a scalable, maintainable, and testable codebase. The communication between layers is handled by the Mediator pattern, which centralizes requests and decouples components, leading to a better separation of concerns and more organized code.
 
 ## NuGet Packages
 
@@ -25,5 +29,10 @@ The communication between layers is handled by the Mediator pattern, which centr
 
 ## React packages
 
-- axios
-- [React.semantic-ui](https://react.semantic-ui.com)
+- [Axios](https://axios-http.com/ptbr/docs/intro) - http requests
+- [React.semantic-ui](https://react.semantic-ui.com) - semantic code
+- [Formik](https://formik.org/) - better way to handle form
+- [MobX](https://mobx.js.org/README.html) - to handle state between components
+- [React-Router](https://reactrouter.com/en/main) - to manage pages
+
+In Progress...
