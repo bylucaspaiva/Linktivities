@@ -1,12 +1,12 @@
 import { observer } from 'mobx-react-lite';
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Button, Segment } from 'semantic-ui-react'
+import { Button, FormField, Label, Segment } from 'semantic-ui-react'
 import LoadingComponent from '../../../app/layout/LoadingComponent';
 import { Activity } from '../../../app/models/activity';
 import { useStore } from '../../../app/stores/store';
 import {v4 as uuid} from 'uuid';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 export default observer(function ActivityForm () {
@@ -61,6 +61,10 @@ export default observer(function ActivityForm () {
         onSubmit={values => console.log(values)}>
         {({ handleSubmit }) => (
           <Form onSubmit={handleSubmit} className='ui form'>
+            <FormField>
+              <Field placeholder="Title" name="title" />
+              <ErrorMessage name="title" render={error => <Label basic color='red' content={error}/>}/>
+            </FormField>
             <Field placeholder="Title"  name='title' />
             <Field placeholder="Description"  name='description' />
             <Field placeholder="Category"  name='category' />
