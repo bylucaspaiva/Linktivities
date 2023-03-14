@@ -7,6 +7,7 @@ import { Activity } from '../../../app/models/activity';
 import { useStore } from '../../../app/stores/store';
 import {v4 as uuid} from 'uuid';
 import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 
 export default observer(function ActivityForm () {
 
@@ -25,6 +26,9 @@ export default observer(function ActivityForm () {
     venue: ''
   });
 
+  const validationSchema = Yup.object({
+    title: Yup.string().required("The activity title is required")
+  })
   
   useEffect(() => {
     if(id) loadActivity(id).then(activity => setActivity(activity!))
@@ -50,7 +54,11 @@ export default observer(function ActivityForm () {
 
   return (
     <Segment clearing>
-      <Formik enableReinitialize initialValues={activity} onSubmit={values => console.log(values)}>
+      <Formik 
+        validationSchema={validationSchema}
+        enableReinitialize 
+        initialValues={activity} 
+        onSubmit={values => console.log(values)}>
         {({ handleSubmit }) => (
           <Form onSubmit={handleSubmit} className='ui form'>
             <Field placeholder="Title"  name='title' />
