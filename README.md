@@ -22,10 +22,12 @@ The intent of this project is to follow the most recommended way to build a comp
 - Microsoft.EntityFrameworkCore.OpenApi
 - Microsoft.EntityFrameworkCore.SqLite
 - FluenValidation.AspNetCore
+-  Microsoft.AspNetCore.Identity.EntityFrameworkCore
 
 ## Entity Framework commands
 
 - dotnet ef migrations add InitialCreate -s API/ -p Persistence/
+- dotnet ef migrations add IdentityAdded -p Persistence/ -s API
 
 ## React packages
 
