@@ -22,7 +22,7 @@ const MySelectInput = (props: Props) => {
         field={field.value || null}
         onChange={(e, d) => helpers.setValue(d.value)}
         onBlur={() => helpers.setTouched(true)}
-        placeholder={props.placeholder}
+        placeholder={props.placeholder} 
       />
       {meta.touched && meta.error ? (
         <Label basic color='red'>{meta.error}</Label>
