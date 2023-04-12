@@ -34,7 +34,7 @@ namespace API.Controllers
             {
                 return new UserDto
                 {
-                    DisplayName = loginDto.DisplayName,
+                    DisplayName = user.DisplayName,
                     Image = null,
                     Token = _tokenService.CreateToken(user),
                     UserName = user.UserName
@@ -42,8 +42,14 @@ namespace API.Controllers
             }
 
             return Unauthorized();
-
         }
+
+        [HttpPost("Register")]
+        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
+        {
+            
+        }
+
 
     }
 }
