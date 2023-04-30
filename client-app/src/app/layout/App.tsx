@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import { setupResponseInterceptor } from '../api/agent';
 import { useStore } from '../stores/store';
 import LoadingComponent from './LoadingComponent';
+import ModalContainer from '../common/modals/ModalContainer';
 
 function App() {
   const location = useLocation();
@@ -36,6 +37,7 @@ function App() {
     <>
       {location.pathname === '/' ? <HomePage /> : (
         <>
+          <ModalContainer />
           <ToastContainer position='bottom-right' hideProgressBar theme='colored'/>
           <NavBar />
           <Container style={{ marginTop: '7em' }}>
