@@ -35,10 +35,10 @@ function App() {
 
   return (
     <>
+      <ModalContainer />
+      <ToastContainer position='bottom-right' hideProgressBar theme='colored'/>
       {location.pathname === '/' ? <HomePage /> : (
         <>
-          <ModalContainer />
-          <ToastContainer position='bottom-right' hideProgressBar theme='colored'/>
           <NavBar />
           <Container style={{ marginTop: '7em' }}>
             <Outlet />
