@@ -1,7 +1,7 @@
 import { ErrorMessage, Form, Formik } from 'formik'
 import React from 'react'
 import MyTextInput from '../../app/common/form/MyTextInput'
-import { Button, Header, Label } from 'semantic-ui-react'
+import { Button, Header } from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 import { observer } from 'mobx-react-lite'
 import * as Yup from 'yup';
@@ -13,12 +13,7 @@ export default observer(function RegisterForm () {
     <Formik
       initialValues={{ displayName: '', username: '', email: '', password: '', error: null }}
       onSubmit={(values, {setErrors, setSubmitting}) => {
-        try {
-          userStore.register(values)
-        }catch (error: any) {
-          setSubmitting(false);
-          setErrors({error})
-        } 
+        userStore.register(values).catch(error => setErrors({error: error})).finally(() => setSubmitting(false))
       }}
       validationSchema={Yup.object({
         displayName: Yup.string().required(),
@@ -28,7 +23,7 @@ export default observer(function RegisterForm () {
       })}
     >
       {({handleSubmit, isSubmitting, errors, isValid, dirty}) => (
-        <Form className='ui form' onSubmit={handleSubmit} autoComplete='off'>
+        <Form className='ui form error' onSubmit={handleSubmit} autoComplete='off'>
           <Header as='h2' content='Sign up to Reactivies' color='teal' textAlign='center' />
           <MyTextInput placeholder='Display Name' name='displayName'/>
           <MyTextInput placeholder='Username' name='username'/>

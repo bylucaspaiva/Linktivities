@@ -29,14 +29,12 @@ export default class UserStore {
 
   register = async (creds: UserFormValues) => {
     try{
-      console.log("test:",creds)
       const user = await agent.Account.register(creds);
       store.commonStore.setToken(user.token);
       runInAction(() => this.user = user);
       router.navigate('/activities');
       store.modalStore.closeModal();
     }catch (error) {
-      console.log("err0r:",error)
       throw error;
     }
   }
