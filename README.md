@@ -3,7 +3,7 @@
 A complete social network coded in .Net and React.
 
 <div>
-  <img src="https://user-images.githubusercontent.com/58491622/224570668-ac0ae2d3-0295-4d3a-aa82-fe10e9432909.png" alt="Home" />
+  <img src="https://user-images.githubusercontent.com/58491622/235378539-e076fad3-98d7-41f8-b5fb-0ed95b802b9a.png" alt="Home" />
   <img src="https://user-images.githubusercontent.com/58491622/224570889-83bfd8ea-f6ea-427f-9ae8-46b8139beffc.png" alt="list activities" />
   <img src="https://user-images.githubusercontent.com/58491622/224570934-fb7dfb19-6975-4731-8a31-97a9ca3acad6.png" alt="view acitivy" />
   <img src="https://user-images.githubusercontent.com/58491622/224571753-cdfcd565-eb2e-4275-8596-5421064c5f54.png" alt="create activity"  />               
