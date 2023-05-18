@@ -71,11 +71,11 @@ export default class ActivityStore {
   }
 
   private setActivity = (activity: Activity) => {
-    const user = store.userStore.user;
+    const {...user} = store.userStore.user;
     if (user) {
       activity.isGoing = activity.attendees!
-        .some(a => a.username === user.username);
-      activity.isHost = activity.hostUserName === user.username;
+        .some(a => a.username === user.userName);
+      activity.isHost = activity.hostUserName === user.userName;
       activity.host = activity.attendees
         ?.find(x => x.username === activity.hostUserName)
     }

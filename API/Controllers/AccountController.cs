@@ -81,7 +81,6 @@ public class AccountController : ControllerBase
         var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
 
         return CreateUserObject(user);
-
     }
     private UserDto CreateUserObject(AppUser user)
     {
