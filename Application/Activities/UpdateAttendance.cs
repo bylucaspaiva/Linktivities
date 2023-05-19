@@ -37,17 +37,17 @@ public class UpdateAttendance
                 .ThenInclude(u => u.AppUser)
                 .FirstOrDefaultAsync(x => x.Id == request.Id);
 
-            if (activity == null) return null;
+            if (activity == null) return Result<Unit>.Failure("Activity not found!");
 
             var user = await _context.Users.FirstOrDefaultAsync(x => x.UserName == _userAcessor.GetUserName());
 
-            if(user == null) return null;
+            if(user == null) return Result<Unit>.Failure("User not found!");
 
             var hostUserName = activity.Attendees.FirstOrDefault(x => x.IsHost)?.AppUser?.UserName;
 
             var attendance = activity.Attendees.FirstOrDefault(a => a.AppUser.UserName == user.UserName);
 
-            if (attendance == null && hostUserName == user.UserName)
+            if (attendance != null && hostUserName == user.UserName)
             {
                 activity.IsCancelled = !activity.IsCancelled;
             }
@@ -64,10 +64,11 @@ public class UpdateAttendance
                     AppUser = user,
                     Activity = activity,
                     IsHost = false
-                }; 
-            }
+                };
 
-            activity.Attendees.Add(attendance);
+                activity.Attendees.Add(attendance);
+
+            }
 
             var result = await _context.SaveChangesAsync() > 0;
 
