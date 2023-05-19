@@ -24,12 +24,12 @@ interface Props {
 }
 
 export default observer(function ActivityDetailedHeader({ activity }: Props) {
-    const {activityStore: {updateAttendance, loading}} = useStore();
+    const { activityStore: { updateAttendance, loading, cancelActivityToggle } } = useStore();
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{ padding: '0' }}>
-                {activity.isCancelled && 
-                    <Label style={{position: 'absolute', xIndex: 1000}} />
+                {activity.isCancelled &&
+                    <Label style={{ position: 'absolute', xIndex: 1000, left: -14, top: 20 }} ribbon color='red' content='Cancelled' />
                 }
                 <Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid style={activityImageStyle} />
                 <Segment style={activityImageTextStyle} basic>
@@ -52,13 +52,35 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
             </Segment>
             <Segment clearing attached='bottom'>
                 {activity.isHost ? (
-                    <Button color='orange' floated='right' as={Link} to={`/manage/${activity.id}`}>
-                        Manage Event
-                    </Button>
+                    <>
+                        <Button
+                            color={activity.isCancelled ? 'green' : 'red'}
+                            floated='left'
+                            basic
+                            content={activity.isCancelled ? "Re-activate Activity" : "Cancel Activity"}
+                            onClick={cancelActivityToggle}
+                            loading={loading}
+                        />
+                        <Button
+                            color='orange'
+                            floated='right'
+                            as={Link} to={`/manage/${activity.id}`}
+                            disabled={activity.isCancelled}
+                        >
+                            Manage Event
+                        </Button>
+                    </>
                 ) : activity.isGoing ? (
                     <Button loading={loading} onClick={updateAttendance}>Cancel attendance</Button>
                 ) : (
-                    <Button loading={loading} onClick={updateAttendance} color='teal'>Join Activity</Button>
+                    <Button
+                        loading={loading}
+                        onClick={updateAttendance}
+                        color='teal'
+                        disabled={activity.isCancelled}
+                    >
+                        Join Activity
+                    </Button>
                 )}
 
             </Segment>
