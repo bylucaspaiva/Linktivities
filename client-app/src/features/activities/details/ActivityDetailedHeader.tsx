@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { Button, Header, Item, Segment, Image } from 'semantic-ui-react'
+import { Button, Header, Item, Segment, Image, Label } from 'semantic-ui-react'
 import { Activity } from "../../../app/models/activity";
 import { useStore } from '../../../app/stores/store';
 
@@ -28,6 +28,9 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{ padding: '0' }}>
+                {activity.isCancelled && 
+                    <Label style={{position: 'absolute', xIndex: 1000}} />
+                }
                 <Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid style={activityImageStyle} />
                 <Segment style={activityImageTextStyle} basic>
                     <Item.Group>
