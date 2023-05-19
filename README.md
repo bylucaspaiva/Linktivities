@@ -15,19 +15,16 @@ The intent of this project is to follow the most recommended way to build a comp
 ## NuGet Packages
 
 - Microsoft.EntityFrameworkCore.Sqlite
-- MediatR
-- AutoMapper.Extensions.Microsoft.DependencyInjection
 - Microsoft.EntityFrameworkCore.SqLite
 - Microsoft.EntityFrameworkCore.Design
 - Microsoft.EntityFrameworkCore.OpenApi
-- Microsoft.EntityFrameworkCore.SqLite
+- Microsoft.AspNetCore.Identity.EntityFrameworkCore
+- Microsoft.AspNetCore.Authentication.JwtBearer
+- Microsoft.AspNetCore.OpenApi
 - FluenValidation.AspNetCore
--  Microsoft.AspNetCore.Identity.EntityFrameworkCore
-
-## Entity Framework commands
-
-- dotnet ef migrations add InitialCreate -s API/ -p Persistence/
-- dotnet ef migrations add IdentityAdded -p Persistence/ -s API
+- MediatR
+- AutoMapper.Extensions.Microsoft.DependencyInjection
+- CloudinaryDotNet
 
 ## React packages
 
