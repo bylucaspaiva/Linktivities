@@ -5,7 +5,7 @@ const ProfileHeader = () => {
   return (
     <Segment>
       <Grid>
-        <Grid.Column width='12'>
+        <Grid.Column width={12}>
           <Item.Group>
             <Item>
               <Item.Image avatar size='small' src={`/assets/user.png`}/>
@@ -15,7 +15,7 @@ const ProfileHeader = () => {
             </Item>
           </Item.Group>
         </Grid.Column>
-        <Grid.Column>
+        <Grid.Column width={4}>
           <Statistic.Group widths={2}>
             <Statistic label='Followers' value='5'/>
             <Statistic label='Following' value='56'/>
