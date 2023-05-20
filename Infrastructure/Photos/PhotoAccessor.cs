@@ -58,7 +58,7 @@ namespace Infrastructure.Photos
         {
             var deleteParams = new DeletionParams(publicId);
             var result = await _cloudinary.DestroyAsync(deleteParams);
-            return result.Result == "Ok" ? result.Result : null;
+            return result.Result == "ok" ? result.Result : null;
         }
     }
 }
