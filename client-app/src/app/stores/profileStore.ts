@@ -22,5 +22,6 @@ export default class ProfileStore {
       console.log(error);
       runInAction(() => this.loadingProfile = false);
     }
+    runInAction(() => this.loadingProfile = false);
   }
 }
