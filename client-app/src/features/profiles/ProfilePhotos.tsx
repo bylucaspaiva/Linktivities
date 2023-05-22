@@ -1,23 +1,44 @@
 import { observer } from 'mobx-react-lite'
-import React from 'react'
-import { Card, Header, TabPane, Image } from 'semantic-ui-react'
+import React, { useState } from 'react'
+import { Card, Header, TabPane, Image, Grid, GridColumn, Button } from 'semantic-ui-react'
 import { Profile } from '../../app/models/profile'
+import { useStore } from '../../app/stores/store';
 
 interface Props {
   profile: Profile | null;
 }
 
-export default observer( function ProfilePhotos({profile}: Props) {
+export default observer(function ProfilePhotos({ profile }: Props) {
+  const { profileStore: { isCurrentUser } } = useStore();
+  const [addPhotoMode, setAddPhotoMode] = useState<boolean>(false);
   return (
     <TabPane>
-      <Header icon={`image`} content='Photos'/>
-      <Card.Group itemsPerRow={5}>
-        {profile?.photos?.map(photo => (
-          <Card key={photo.id}>
-            <Image src={photo.url} />
-          </Card>
-        ))}
-      </Card.Group>
+      <Grid>
+        <GridColumn width={16} >
+          <Header icon={`image`} content='Photos' />
+          {isCurrentUser && (
+            <Button
+              floated='right' basic
+              content={addPhotoMode ? 'Cancel' : 'Add Photo'}
+              onClick={() => setAddPhotoMode(!addPhotoMode)}
+            />
+          )}
+        </GridColumn>
+        <GridColumn width={16}>
+          {addPhotoMode ? (
+            <p>photo widget</p>
+          ) : (
+            <Card.Group itemsPerRow={5}>
+              {profile?.photos?.map(photo => (
+                <Card key={photo.id}>
+                  <Image src={photo.url} />
+                </Card>
+              ))}
+            </Card.Group>
+          )}
+        </GridColumn>
+      </Grid>
+
     </TabPane>
   )
 })
