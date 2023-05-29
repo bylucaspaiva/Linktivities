@@ -4,11 +4,6 @@ using Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Followers;
 
@@ -16,7 +11,7 @@ public class FollowToggle
 {
     public class Command : IRequest<Result<Unit>>
     {
-        public string TargerUsername { get; set; }
+        public string TargetUsername { get; set; }
     }
     public class Handler : IRequestHandler<Command, Result<Unit>>
     {
@@ -35,7 +30,7 @@ public class FollowToggle
             x.UserName == _userAccessor.GetUserName());
 
             var target = await _context.Users.FirstOrDefaultAsync(x =>
-            x.UserName == request.TargerUsername);
+            x.UserName == request.TargetUsername);
 
             if (target is null) return Result<Unit>.Failure("Target is null");
 
