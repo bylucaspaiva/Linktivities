@@ -18,7 +18,7 @@ export default observer( function ProfileCard ({profile}: Props) {
       </Card.Content>
       <CardContent extra>
         <Icon name="user" />
-        15 followers
+        {profile.followersCount} folowers
       </CardContent>
     </Card>
   )
