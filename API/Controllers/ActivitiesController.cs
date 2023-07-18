@@ -1,4 +1,5 @@
 ﻿using Application.Activities;
+using Application.Core;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -11,9 +12,9 @@ namespace API.Controllers
     public class ActivitiesController : BaseApiController
     {
         [HttpGet]//api/activities
-        public async Task<ActionResult> GetActivities(CancellationToken ct)
+        public async Task<ActionResult> GetActivities([FromQuery]PagingParams param)
         {
-            return HandleResult(await Mediator.Send(new List.Query(), ct));
+            return HandleResult(await Mediator.Send(new List.Query{Params = param}));
         }
 
         [HttpGet("{id}")]//api/activities/anything
