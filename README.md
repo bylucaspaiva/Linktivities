@@ -1,4 +1,4 @@
-# Reactivities
+# Linktivities
 
 A complete social network coded in .Net and React.
 
