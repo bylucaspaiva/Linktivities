@@ -37,9 +37,9 @@ The intent of this project is to follow the most recommended way to build a comp
 
 ## Run
 ``
-clone this project
-on the api folder run: dotnet run
-and then go to Client-App and run yarn install
+clone this project,
+on the api folder run: dotnet run,
+and then go to Client-App and run yarn install,
 then run yarn start and on localhost:3000 use lucas@test.com and Pa$$w0rd to test the web app
 ``
 
