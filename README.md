@@ -3,10 +3,11 @@
 A complete social network coded in .Net and React.
 
 <div>
-  <img src="https://user-images.githubusercontent.com/58491622/235378539-e076fad3-98d7-41f8-b5fb-0ed95b802b9a.png" alt="Home" />
-  <img src="https://user-images.githubusercontent.com/58491622/224570889-83bfd8ea-f6ea-427f-9ae8-46b8139beffc.png" alt="list activities" />
-  <img src="https://user-images.githubusercontent.com/58491622/224570934-fb7dfb19-6975-4731-8a31-97a9ca3acad6.png" alt="view acitivy" />
-  <img src="https://user-images.githubusercontent.com/58491622/224571753-cdfcd565-eb2e-4275-8596-5421064c5f54.png" alt="create activity"  />               
+  <img src="https://github.com/bylucaspaiva/Linktivities/assets/58491622/d2dcbf3a-8aa8-42c4-8d2d-f8423350a972" alt="Home" />
+  <img src="https://github.com/bylucaspaiva/Linktivities/assets/58491622/23e66a88-9e03-47d1-bf7c-077adff59e20" alt="list activities" />
+  <img src="https://github.com/bylucaspaiva/Linktivities/assets/58491622/84f27bc4-1bd8-41f0-829f-2881ddd36cd3" alt="add a photo" />
+  <img src="https://github.com/bylucaspaiva/Linktivities/assets/58491622/a8aaf73f-efee-47a6-ba40-e851ee7486b7" alt="create activity"  />    
+  <img src="https://github.com/bylucaspaiva/Linktivities/assets/58491622/956890c0-6beb-479e-9fbf-0b3c5326bd60" alt="see and edit activity"  />
 </div>
 
 
