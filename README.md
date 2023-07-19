@@ -35,4 +35,13 @@ The intent of this project is to follow the most recommended way to build a comp
 - [MobX](https://mobx.js.org/README.html) - to handle state between components
 - [React-Router](https://reactrouter.com/en/main) - to manage pages
 
+## Run
+``
+clone this project
+on the api folder run: dotnet run
+and then go to Client-App and run yarn install
+then run yarn start and on localhost:3000 use lucas@test.com and Pa$$w0rd to test the web app
+``
+
+
 In Progress...
