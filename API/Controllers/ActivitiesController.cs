@@ -12,7 +12,7 @@ namespace API.Controllers
     public class ActivitiesController : BaseApiController
     {
         [HttpGet]//api/activities
-        public async Task<ActionResult> GetActivities([FromQuery]PagingParams param)
+        public async Task<ActionResult> GetActivities([FromQuery]ActivityParams param)
         {
             return HandlePageResult(await Mediator.Send(new List.Query{Params = param}));
         }
