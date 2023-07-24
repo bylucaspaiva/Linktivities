@@ -27,7 +27,6 @@ export default observer(function ProfileActivities() {
     loadUserActivities(profile!.username, panes[data.activeIndex as number].pane.key)
   }
 
-  console.log(userActivities.map(a => console.log("teste a:", a)))
   return (
     <Tab.Pane loading={loadingActivities}>
       <Grid>

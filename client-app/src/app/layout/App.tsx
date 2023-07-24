@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container } from 'semantic-ui-react';
 import NavBar from './NavBar';
 import { observer } from 'mobx-react-lite';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, ScrollRestoration, useLocation, useNavigate } from 'react-router-dom';
 import HomePage from '../../features/home/HomePage';
 import { ToastContainer } from 'react-toastify';
 import { setupResponseInterceptor } from '../api/agent';
@@ -35,6 +35,7 @@ function App() {
 
   return (
     <>
+      <ScrollRestoration />
       <ModalContainer />
       <ToastContainer position='bottom-right' hideProgressBar theme='colored'/>
       {location.pathname === '/' ? <HomePage /> : (
