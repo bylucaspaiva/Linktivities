@@ -1,0 +1,23 @@
+# fly.toml app configuration file generated for linktivities on 2023-07-25T11:10:10-03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "linktivities"
+primary_region = "gru"
+
+[build]
+  image = "fractaldisorder/linktivities:latest"
+
+[env]
+  ASPNETCORE_URLS="http://+:8080"
+  Cloudinary__CloudName="djbqmshh2"
+  Cloudinary__ApiKey="175212647166669"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]

@@ -1,5 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 WORKDIR /app
+EXPOSE 8080
 
 # copy .csproj ans restore as distinct layers
 COPY "Linktivities.sln" "Linktivities.sln"
