@@ -13,6 +13,7 @@ RUN dotnet restore "Linktivities.sln"
 
 # copy everything else
 COPY . .
+WORKDIR /app
 RUN dotnet publish -c Release -o out 
 
 # build a runtime image 
