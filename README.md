@@ -1,6 +1,4 @@
-# Linktivities
-
-[Live code:](https://linktivities.fly.dev/) 
+# [Linktivities](https://linktivities.fly.dev/) 
 
 A complete social network coded in .Net and React.
 
