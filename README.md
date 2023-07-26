@@ -34,23 +34,22 @@ Linktivities is a social network application developed using .NET and React. The
 Please note that there are 2 branchs, on master the project will not work properly unless u make changes
 on docker to it run the ocntainer on development mode.
 
-For convenience on dev mode the changes are made directly on the code
-
 ***
 1. clone this project:
 
 ```
 git clone https://github.com/bylucaspaiva/Linktivities.git
 ```
-2. Go to Project:
+2. Go to Project and change to development branch:
 
 ```
 cd Linktivities
+git checkout development
 ```
 
 3. first create an docker image for postgress:
 ```
- docker run --name dev -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres:latest 
+docker run --name dev -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres:latest 
 ```
 
 4. Next create an image for the app:
