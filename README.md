@@ -1,7 +1,12 @@
-# Linktivities
+# [Linktivities](https://linktivities.fly.dev/)
 
 Linktivities is a social network application developed using .NET and React. The project is built with a focus on following best practices, including SOLID principles and Clean Architecture. This approach ensures a scalable, maintainable, and testable codebase. The communication between different layers of the application is facilitated by the Mediator pattern, enabling centralized requests and loose coupling, leading to better separation of concerns and a more organized codebase.
 
+## Features
+- Photo upload: you can add photos to your profile on the profile section.
+- Create activities: you can create posts (activities) and people can comment and attend to these activities.-
+- Follow and be followed: you can follow and unfollow other people.
+- Iterate on real time: on activity posts you can comment and be replied with any person seing that post.
 
 ## Technologies and Packages Used
 
@@ -26,8 +31,6 @@ Linktivities is a social network application developed using .NET and React. The
 - [Formik](https://formik.org/) - better way to handle form
 - [MobX](https://mobx.js.org/README.html) - to handle state between components
 - [React-Router](https://reactrouter.com/en/main) - to manage pages
-
-
 
 ## How to run 
 
@@ -64,6 +67,4 @@ docker run --rm -it -p 8080:80 fractaldisorder/linktivities
 
 Now you can go to localhost:8080 and register an account.
 
-## You also can see an example on the link below
-
-Live App: [https://linktivities.fly.dev/](https://linktivities.fly.dev/)
+### Preview: [https://linktivities.fly.dev/](https://linktivities.fly.dev/)
