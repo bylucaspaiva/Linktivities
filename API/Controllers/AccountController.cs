@@ -115,7 +115,9 @@ public class AccountController : ControllerBase
     [HttpPost("refreshToken")]
     public async Task<ActionResult<UserDto>> RefreshToken(){
         var refreshToken = Request.Cookies["refreshToken"];
-        var user = await _userManager.Users.Include(x => x.RefreshTokens)
+        var user = await _userManager.Users
+            .Include(x => x.RefreshTokens)
+            .Include(p => p.Photos)
             .FirstOrDefaultAsync(x => x.UserName == User.FindFirstValue(ClaimTypes.Name));
 
         if(user == null) return Unauthorized();
