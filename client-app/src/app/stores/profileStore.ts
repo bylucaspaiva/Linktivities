@@ -111,6 +111,7 @@ export default class ProfileStore {
 
   updateProfile = async (profile: Partial<Profile>) => {
     this.loading = true;
+    console.log("teste:", profile)
     try{
       await agent.Profiles.updateProfile(profile);
       runInAction(() => {
@@ -182,4 +183,6 @@ export default class ProfileStore {
       })
     }
   }
+
+  
 }

@@ -5,12 +5,8 @@ import { Photo, Profile } from '../../app/models/profile'
 import { useStore } from '../../app/stores/store';
 import PhotoUploadWidget from '../../app/common/imageUpload/PhotoUploadWidget';
 
-interface Props {
-  profile: Profile | null;
-}
-
-export default observer(function ProfilePhotos({ profile }: Props) {
-  const { profileStore: { isCurrentUser, uploadPhoto, uploading, loading, deletePhoto, setMainPhoto } } = useStore();
+export default observer(function ProfilePhotos() {
+  const { profileStore: { isCurrentUser, uploadPhoto, uploading, loading, deletePhoto, setMainPhoto, profile } } = useStore();
   const [addPhotoMode, setAddPhotoMode] = useState<boolean>(false);
   const [target, setTarget] = useState('');
 
