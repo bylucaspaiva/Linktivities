@@ -22,7 +22,7 @@ namespace API.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateProfile(Profile profile)
         {
-
+            return HandleResult(await Mediator.Send(new Edit.Command { Profile = profile }));
         }
     }
 }
