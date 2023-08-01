@@ -14,35 +14,53 @@ const validationSchema = Yup.object({
 
 export default observer(function ProfileAbout() {
   const { profileStore } = useStore();
-  const {profile, loading, updateProfile} = profileStore;
+  const { profile, updateProfile } = profileStore;
+
+  const [isClicked, setIsClicked] = useState(false);
 
   function handleFormSubmit(values: any) {
-    console.log("console:", values)
-    updateProfile(values)
+    updateProfile(values);
   }
+
+  useEffect(() => {
+    setIsClicked(false);
+  }, [profile])
+
 
   return (
     <Segment>
-      <Header content="About me" />
-      <Formik
+      <Header content={`About ${profile?.displayName}`} />
+      {isClicked ? (
+        <Formik
         validationSchema={validationSchema}
         onSubmit={(values: any) => handleFormSubmit(values!)}
         enableReinitialize
         initialValues={profile!}
       >
         {({ handleSubmit, isValid, isSubmitting, dirty }) => (
-          <Form onSubmit={handleSubmit} className='ui form'>
+          <Form onSubmit={handleSubmit} className="ui form">
             <MyTextInput placeholder="Name" name="displayName" />
             <MyTextArea rows={3} placeholder="Bio" name="bio" />
             <Button
               disabled={isSubmitting || !dirty || !isValid}
-              floated="right" positive 
-              type="submit" content="Submit" 
-              loading={isSubmitting} 
+              floated="right"
+              positive
+              type="submit"
+              onClick={() => setIsClicked(true)}
+              content="Submit"
+              loading={isSubmitting}
             />
+          <Button onClick={() => setIsClicked(false)} content="Cancel" />
           </Form>
         )}
       </Formik>
+      ) : (
+        <div>
+        <Button onClick={() => setIsClicked(true)} content="Edit" />
+        <h2>Bio</h2>
+        <p>{profile?.bio}</p>
+      </div>
+      )}
     </Segment>
   );
 });
