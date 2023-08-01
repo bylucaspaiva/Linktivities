@@ -34,6 +34,10 @@ public class MappingProfiles : AutoMapper.Profile
             .ForMember(d => d.Following, 
                 o => o.MapFrom(s => s.Followers.Any(x => x.Observer.UserName == currentUsername)));
 
+        CreateMap<Profiles.Profile, Profiles.Profile>();
+
+        CreateMap<Profiles.Profile, AppUser>();
+
         CreateMap<Comment, CommentDTO>()
             .ForMember(d => d.DisplayName, o => o.MapFrom((s => s.Author.DisplayName)))
             .ForMember(d => d.Username, o => o.MapFrom((s => s.Author.UserName)))

@@ -30,8 +30,6 @@ export default observer(function ActivityForm () {
     date: Yup.string().required("Date is required").nullable(),
     venue: Yup.string().required("Venue is required"),
     city: Yup.string().required("City is required"),
-
-
   })
   
   useEffect(() => {
@@ -44,10 +42,9 @@ export default observer(function ActivityForm () {
         ...activity,
         id: uuid()
       }
-      createActivity(newActivity).then(() => navigate(`/activities/${newActivity.id}`))
+      createActivity(newActivity).then(() => navigate(`/activities/${newActivity.id}`));
     }else{
-      updateActivity(activity).then(() => navigate(`/activities/${activity.id}`))
-;
+      updateActivity(activity).then(() => navigate(`/activities/${activity.id}`));
     }
   }
 
@@ -61,7 +58,8 @@ export default observer(function ActivityForm () {
         validationSchema={validationSchema}
         enableReinitialize 
         initialValues={activity} 
-        onSubmit={values => handleFormSubmit(values)}>
+        onSubmit={values => handleFormSubmit(values)}
+      >
         {({ handleSubmit, isValid, isSubmitting, dirty }) => (
           <Form onSubmit={handleSubmit} className='ui form'>
             <MyTextInput placeholder="Title"  name='title' />
